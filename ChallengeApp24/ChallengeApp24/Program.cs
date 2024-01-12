@@ -55,8 +55,8 @@ foreach (var item in employees)
 {
     if (item.SumaPunkty >= maxResult)
     {
-       employeeWithMaxResult = item;
-       maxResult = item.SumaPunkty;
+        employeeWithMaxResult = item;
+        maxResult = item.SumaPunkty;
     }
 }
 Console.WriteLine($"ODPOWIEDZ: Pracownik z najwiekszą liczbą ocen rownej {maxResult} ma : {employeeWithMaxResult.Name} {employeeWithMaxResult.Nazwisko}, {employeeWithMaxResult.Wiek} lat ");

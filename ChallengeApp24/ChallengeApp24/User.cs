@@ -18,7 +18,7 @@
         {
             get
             {
-                return this.score.Sum();
+                return  this.score.Sum();
             }
         }
 

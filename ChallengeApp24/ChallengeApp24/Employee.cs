@@ -22,7 +22,7 @@
                 return this.score.Sum();
             }
         }
-        
+
         public void AddPunkty(int punkty)
         {
             this.score.Add(punkty);
