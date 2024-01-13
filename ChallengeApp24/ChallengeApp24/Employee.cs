@@ -4,18 +4,18 @@
     {
         private List<int> score = new List<int>();
 
-        public Employee(string name, string nazwisko, int wiek)
+        public Employee(string name, string lastName, int age)
         {
             this.Name = name;
-            this.Nazwisko = nazwisko;
-            this.Wiek = wiek;
+            this.LastName = lastName;
+            this.Age = age;
         }
         public string Name { get; private set; }
-        public string Nazwisko { get; private set; }
+        public string LastName { get; private set; }
 
-        public int Wiek { get; private set; }
+        public int Age { get; private set; }
 
-        public int SumaPunkty
+        public int maxResult
         {
             get
             {

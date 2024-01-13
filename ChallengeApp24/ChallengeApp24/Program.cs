@@ -53,12 +53,12 @@ Employee employeeWithMaxResult = null;
 
 foreach (var item in employees)
 {
-    if (item.SumaPunkty >= maxResult)
+    if (item.maxResult >= maxResult)
     {
         employeeWithMaxResult = item;
-        maxResult = item.SumaPunkty;
+        maxResult = item.maxResult;
     }
 }
-Console.WriteLine($"ODPOWIEDZ: Pracownik z najwiekszą liczbą ocen rownej {maxResult} ma : {employeeWithMaxResult.Name} {employeeWithMaxResult.Nazwisko}, {employeeWithMaxResult.Wiek} lat ");
+Console.WriteLine($"ODPOWIEDZ: Pracownik z najwiekszą liczbą ocen rownej {maxResult} ma : {employeeWithMaxResult.Name} {employeeWithMaxResult.LastName}, {employeeWithMaxResult.Age} lat ");
 
 
