@@ -1,6 +1,6 @@
 ﻿namespace ChallengeApp24
 {
-    internal class User
+    public class User
     {
         private List<int> score = new List<int>();
         public static string GameName = "Diablo";
@@ -10,6 +10,10 @@
             this.Login = login;
             this.Password = password;
         }
+        public User(string login)
+        {
+            this.Login = login;
+        }
 
         public string Login { get; private set; }
         public string Password { get; private set; }
@@ -18,7 +22,7 @@
         {
             get
             {
-                return  this.score.Sum();
+                return this.score.Sum();
             }
         }
 
