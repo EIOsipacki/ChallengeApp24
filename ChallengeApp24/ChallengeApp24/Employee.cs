@@ -37,22 +37,22 @@
             }
         }
 
-        public void AddGrades(double grade)
+        public void AddGrade(double grade)
         {
             var value = (float)grade;
-            this.AddGrades(value);
+            this.AddGrade(value);
         }
 
-        public void AddGrades(long grade)
+        public void AddGrade(long grade)
         {
             var value = (float)grade;
-            this.AddGrades(value);
+            this.AddGrade(value);
         }
 
-        public void AddGrades(int grade)
+        public void AddGrade(int grade)
         {
             var value = (float)grade;
-            this.AddGrades(value);
+            this.AddGrade(value);
         }
 
         public void AddGrade(char grade)
