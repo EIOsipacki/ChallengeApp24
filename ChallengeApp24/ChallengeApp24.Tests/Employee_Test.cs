@@ -1,56 +1,51 @@
 ﻿namespace ChallengeApp24.Tests
 {
-
     public class Employee_Tests
     {
-        //[SetUp]
-        //public void Setup()
-        //{
-        //}
-
         [Test]
-        public void WhenTwoEmployeeScoreAreAdded_SzhouldReturnSumAsResult()
+        public void WhenInputGradesToEmployeeStatisticsMaxIsMaxFromGrades()
         {
-            // arrange
-            var employee = new Employee("Jan", "Kowalczyk", 33); ;
-            employee.AddPunkty(1);
-            employee.AddPunkty(3);
+            //arrange
+            var employee = new Employee("Jan", "Kowalski");
+            employee.AddGrade(12.334f);
+            employee.AddGrade(0);
+            employee.AddGrade(-90.897f);
 
             // act
-            int result = employee.maxResult;
+            var statistics = employee.GetStatistics();
 
-            // assert
-            Assert.AreEqual(4, result);
+            //assert
+            Assert.AreEqual(12.334f, statistics.Max);
         }
-
         [Test]
-        public void WhenEmployeeSetOfScoresHaveNegativeScore_ShouldCorrectSumAsResult()
+        public void WhenInputGradesToEmployeeStatisticsMinIsMinFromGrades()
         {
-            var employee = new Employee("Jan", "Kowalczyk", 33); ;
-            employee.AddPunkty(1);
-            employee.AddPunkty(3);
-            employee.AddPunkty(-5);
+            //arrange
+            var employee = new Employee("Jerzy", "Malec");
+            employee.AddGrade(2);
+            employee.AddGrade(4);
+            employee.AddGrade(6);
 
             // act
-            int result = employee.maxResult;
+            var statistics = employee.GetStatistics();
 
-            // assert
-            Assert.AreEqual(-1, result);
+            //assert
+            Assert.AreEqual(2, statistics.Min);
         }
-
         [Test]
-        public void WhenEmployeeSetOfScoresHaveNullScore_ShouldCorrectSumAsResult()
+        public void WhenInputGradesToEmployeeStatisticsAverageIsAverageFromGrades()
         {
-            var employee = new Employee("Jan", "Kowalczyk", 33); ;
-            employee.AddPunkty(1);
-            employee.AddPunkty(0);
-            employee.AddPunkty(-5);
+            //arrange
+            var employee = new Employee("Ola", "Kwasinska");
+            employee.AddGrade(2);
+            employee.AddGrade(2);
+            employee.AddGrade(6);
 
             // act
-            int result = employee.maxResult;
+            var statistics = employee.GetStatistics();
 
-            // assert
-            Assert.AreEqual(-4, result);
+            //assert
+            Assert.AreEqual(3.333, Math.Round(statistics.Average, 3));
         }
     }
 }
