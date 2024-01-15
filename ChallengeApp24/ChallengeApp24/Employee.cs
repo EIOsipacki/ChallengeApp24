@@ -61,7 +61,7 @@
             this.AddGrade(value);
         }
 
-        public Statistics GetStatistics()
+        public Statistics GetStatisticsWithForEach()
         {
             var statistics = new Statistics();
             statistics.Average = 0;
@@ -85,10 +85,10 @@
             return statistics;
         }
 
-        public Statistics GetStatisticsWithForEach()
-        {
-            return GetStatistics();
-        }
+        //public Statistics GetStatisticsWithForEach()
+        //{
+        //    return GetStatistics();
+        //}
 
         public Statistics GetStatisticsWithFor()
         {
