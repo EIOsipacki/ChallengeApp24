@@ -103,12 +103,12 @@
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Min = float.MaxValue;
-            statistics.Max = float.MinValue;
 
             if (this.grades.Count > 0)
             {
+                statistics.Average = 0;
+                statistics.Min = float.MaxValue;
+                statistics.Max = float.MinValue;
                 foreach (var grade in this.grades)
                 {
                     statistics.Max = Math.Max(statistics.Max, grade);
@@ -138,7 +138,8 @@
             }
             else
             {
-                Console.WriteLine("List Grades is Empty");
+                throw new Exception("List Grades is Empty");
+               //Console.WriteLine("List Grades is Empty");
             }
             return statistics;
         }

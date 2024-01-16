@@ -25,5 +25,13 @@ while (true)
     }
 }
 
-var statistics = employee.GetStatistics();
-statistics.WriteLineStatistics();
+
+try
+{
+    var statistics = employee.GetStatistics();
+    statistics.WriteLineStatistics();
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Exception catched: {ex.Message}");
+}
