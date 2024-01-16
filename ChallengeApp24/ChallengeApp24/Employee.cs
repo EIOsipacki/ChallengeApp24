@@ -138,7 +138,7 @@
             }
             else
             {
-                throw new Exception("List Grades is Empty");
+                throw new Exception("No statistics to show");
                //Console.WriteLine("List Grades is Empty");
             }
             return statistics;
