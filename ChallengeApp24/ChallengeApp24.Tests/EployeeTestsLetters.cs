@@ -1,6 +1,6 @@
 ﻿namespace ChallengeApp24.Tests
 {
-    internal class Eployee_Tests_Letters
+    internal class EployeeTestsLetters
     {
         [Test]
         public void WhenInputLetterGrades_StatisticsShouldBeRight()

@@ -1,6 +1,6 @@
 ﻿namespace ChallengeApp24.Tests
 {
-    public class Employee_Tests
+    public class EmployeeTests
     {
         [Test]
         public void WhenInputGradesToEmployeeStatisticsMaxIsMaxFromGrades()
