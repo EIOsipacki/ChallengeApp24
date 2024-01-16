@@ -10,6 +10,10 @@
             this.SurName = surName;
         }
 
+        public Employee()
+        {
+        }
+
         public string Name { get; private set; }
         public string SurName { get; private set; }
 
@@ -55,13 +59,47 @@
             this.AddGrade(value);
         }
 
+        //public void AddGrade(char grade)
+        //{
+        //    string value = grade.ToString();
+        //    this.AddGrade(value);
+        //}
+
+
         public void AddGrade(char grade)
         {
-            string value = grade.ToString();
-            this.AddGrade(value);
+            switch (grade)
+            {
+                case 'A':
+                case 'a':
+                    this.grades.Add(100);
+                    break;
+                case 'B':
+                case 'b':
+                    this.grades.Add(80);
+                    break;
+                case 'C':
+                case 'c':
+                    this.grades.Add(60);
+                    break;
+                case 'D':
+                case 'd':
+                    this.grades.Add(40);
+                    break;
+                case 'E':
+                case 'e':
+                    grades.Add(20);
+                    break;
+                default:
+                    Console.WriteLine("Wrong letter");
+                    this.grades.Add(0);
+                    break;
+            }
         }
 
-        public Statistics GetStatisticsWithForEach()
+
+
+        public Statistics GetStatistics()
         {
             var statistics = new Statistics();
             statistics.Average = 0;
@@ -77,6 +115,25 @@
                     statistics.Average += grade;
                 }
                 statistics.Average /= this.grades.Count;
+
+                switch (statistics.Average)
+                {
+                    case var average when average >= 80:
+                        statistics.AverageLetter = 'A';
+                        break;
+                    case var average when average >= 60:
+                        statistics.AverageLetter = 'B';
+                        break;
+                    case var average when average >= 40:
+                        statistics.AverageLetter = 'C';
+                        break;
+                    case var average when average >= 20:
+                        statistics.AverageLetter = 'D';
+                        break;
+                    default:
+                        statistics.AverageLetter = 'E';
+                        break;
+                }
             }
             else
             {
@@ -84,65 +141,5 @@
             }
             return statistics;
         }
-
-        //public Statistics GetStatisticsWithForEach()
-        //{
-        //    return GetStatistics();
-        //}
-
-        public Statistics GetStatisticsWithFor()
-        {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-
-            for (int i = 0; i < this.grades.Count; i++)
-            {
-                statistics.Max = Math.Max(statistics.Max, grades[i]);
-                statistics.Min = Math.Min(statistics.Min, grades[i]);
-                statistics.Average += grades[i];
-            }
-            statistics.Average /= this.grades.Count;
-            return statistics;
-        }
-
-        public Statistics GetStatisticsWhithDoWhile()
-        {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-            int index = 0;
-            do
-            {
-                statistics.Max = Math.Max(statistics.Max, grades[index]);
-                statistics.Min = Math.Min(statistics.Min, grades[index]);
-                statistics.Average += grades[index];
-                index++;
-            } while (index < this.grades.Count);
-
-            statistics.Average /= index;
-            return statistics;
-        }
-
-        public Statistics GetStatisticsWhithWhile()
-        {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-            int index = 0;
-            while (index < this.grades.Count)
-            {
-                statistics.Max = Math.Max(statistics.Max, grades[index]);
-                statistics.Min = Math.Min(statistics.Min, grades[index]);
-                statistics.Average += grades[index];
-                index++;
-            }
-            statistics.Average /= index;
-            return statistics;
-        }
-
     }
 }

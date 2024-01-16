@@ -1,18 +1,30 @@
 ﻿using ChallengeApp24;
 
-var employee = new Employee("Adam", "Kamizelik");
-employee.AddGrade("10");
-employee.AddGrade('5');
-employee.AddGrade(600);
-//var statistics = employee.GetStatistics();
-var statistics1 = employee.GetStatisticsWithForEach();
-var statistics2 = employee.GetStatisticsWithFor();
-var statistics3 = employee.GetStatisticsWhithDoWhile();
-var statistics4 = employee.GetStatisticsWhithWhile();
+Console.WriteLine(" Witamy w Programie XVZ do oceny Pracowników");
+Console.WriteLine("=============================================");
+Console.WriteLine();
 
-//Console.WriteLine($"Average: {statistics.Average:N2}, Max: {statistics.Max}, Min: {statistics.Min}");
-Console.WriteLine($"1: Average: {statistics1.Average:N2}, Max: {statistics1.Max}, Min: {statistics1.Min}");
-Console.WriteLine($"2: Average: {statistics2.Average:N2}, Max: {statistics2.Max}, Min: {statistics2.Min}");
-Console.WriteLine($"3: Average: {statistics3.Average:N2}, Max: {statistics3.Max}, Min: {statistics3.Min}");
-Console.WriteLine($"4: Average: {statistics4.Average:N2}, Max: {statistics4.Max}, Min: {statistics4.Min}");
+var employee = new Employee();
+//employee.AddGrade('a');
+//employee.AddGrade('b');
+//employee.AddGrade('c');
+//employee.AddGrade('d');
+//employee.AddGrade('e');
+//employee.AddGrade('h');
 
+while (true)
+{
+    Console.WriteLine("Podaj kolejną ocenę pracownika");
+    var input = Console.ReadLine();
+    if (input == "q" || input == "Q")
+    {
+        break;
+    }
+    else
+    {
+        employee.AddGrade(input);
+    }
+}
+
+var statistics = employee.GetStatistics();
+statistics.WriteLineStatistics();
