@@ -5,12 +5,7 @@ Console.WriteLine("=============================================");
 Console.WriteLine();
 
 var employee = new Employee();
-//employee.AddGrade('a');
-//employee.AddGrade('b');
-//employee.AddGrade('c');
-//employee.AddGrade('d');
-//employee.AddGrade('e');
-//employee.AddGrade('h');
+
 
 while (true)
 {
@@ -20,9 +15,13 @@ while (true)
     {
         break;
     }
-    else
+    try
     {
         employee.AddGrade(input);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"Exception catched: {e.Message}");
     }
 }
 

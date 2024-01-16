@@ -25,7 +25,7 @@
             }
             else
             {
-                Console.WriteLine("invalid grade value");
+                throw new Exception("invalid grade value");
             }
         }
 
@@ -37,7 +37,7 @@
             }
             else
             {
-                Console.WriteLine("string is not float");
+                throw new Exception("String is not float");
             }
         }
 
@@ -91,9 +91,9 @@
                     grades.Add(20);
                     break;
                 default:
-                    Console.WriteLine("Wrong letter");
-                    this.grades.Add(0);
-                    break;
+                    throw new Exception("Wrong letter");
+                    // break nie potrzebny jak używamy throw
+                    //break;
             }
         }
 
@@ -137,7 +137,7 @@
             }
             else
             {
-                Console.WriteLine("List Grades is Empty");
+                throw new Exception("List Grades is Empty");
             }
             return statistics;
         }
