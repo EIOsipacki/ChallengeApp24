@@ -4,7 +4,7 @@ Console.WriteLine(" Witamy w Programie XVZ do oceny Pracowników");
 Console.WriteLine("=============================================");
 Console.WriteLine();
 
-var employee = new Employee();
+var employee = new Employee("Name", "SurName");
 
 
 while (true)

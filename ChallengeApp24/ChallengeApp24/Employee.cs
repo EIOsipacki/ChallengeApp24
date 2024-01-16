@@ -1,20 +1,21 @@
 ﻿namespace ChallengeApp24
 {
-    public class Employee
+    public class Employee : Person
     {
         private List<float> grades = new List<float>();
 
         public Employee(string name, string surName)
+            : base(name)
         {
-            this.Name = name;
+            //this.Name = name;
             this.SurName = surName;
         }
 
-        public Employee()
-        {
-        }
+        //public Employee()
+        //{
+        //}
 
-        public string Name { get; private set; }
+        // public string Name { get; private set; }
         public string SurName { get; private set; }
 
         public void AddGrade(float grade)
@@ -137,7 +138,7 @@
             }
             else
             {
-                throw new Exception("List Grades is Empty");
+                Console.WriteLine("List Grades is Empty");
             }
             return statistics;
         }
