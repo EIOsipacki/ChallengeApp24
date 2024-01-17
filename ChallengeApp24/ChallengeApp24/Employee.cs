@@ -4,19 +4,37 @@
     {
         private List<float> grades = new List<float>();
 
-        public Employee(string name, string surName)
-            : base(name)
+        public Employee(string name, string surName, int age, string sex)
+            : base(name, surName, sex)
         {
-            //this.Name = name;
-            this.SurName = surName;
+            this.Age = age;
         }
 
-        //public Employee()
-        //{
-        //}
+        public Employee(string name, string surName, string sex)
+            : this(name, surName, 0, sex)
+        {
+        }
 
-        // public string Name { get; private set; }
-        public string SurName { get; private set; }
+        public Employee(string name, string surName, int age)
+            : this(name, surName, age, "M")
+        {
+        }
+        public Employee(string name, string surName)
+            : this(name, surName, 0, "M")
+        {
+        }
+
+        public Employee(int age, string sex)
+            : this(" no name", "no surname", age, sex)
+        {
+        }
+
+        public Employee()
+            : this("no name", "no surname", 0, "M")
+        {
+        }
+
+        public int Age { get; private set; }
 
         public void AddGrade(float grade)
         {
@@ -139,7 +157,7 @@
             else
             {
                 throw new Exception("No statistics to show");
-               //Console.WriteLine("List Grades is Empty");
+                //Console.WriteLine("List Grades is Empty");
             }
             return statistics;
         }
