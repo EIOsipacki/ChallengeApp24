@@ -4,19 +4,10 @@ Console.WriteLine(" Witamy w Programie XVZ do oceny Pracowników");
 Console.WriteLine("=============================================");
 Console.WriteLine();
 
+//HW Dzien 15 nie potrzebuje to
+//var employeeNameSurNameAgeSex = new Employee("Adam", "Kowalski", 35, "M");
 
-var employeeNameSurNameAgeSex = new Employee("Adam", "Kowalski", 35, "M");
-Console.WriteLine($"Parametry: name + surname + age + sex = {employeeNameSurNameAgeSex.Name} {employeeNameSurNameAgeSex.SurName} / {employeeNameSurNameAgeSex.Age} / {employeeNameSurNameAgeSex.Sex} /");
-var employeeNameSurName = new Employee("Adam", "Kowalski");
-Console.WriteLine($"Parametry: name + surname = {employeeNameSurName.Name} {employeeNameSurName.SurName}/ {employeeNameSurName.Age} / {employeeNameSurName.Sex} /");
-var employeeNameSurNameAge = new Employee("Adam", "Kowalski", 35);
-Console.WriteLine($"Parametry: name + surname + age = {employeeNameSurNameAge.Name} {employeeNameSurNameAge.SurName} / {employeeNameSurNameAge.Age} / {employeeNameSurNameAge.Sex} /");
-var employeeNameSurNameSex = new Employee("Adam", "Kowalski", "M");
-Console.WriteLine($"Parametry: name + surname + sex = {employeeNameSurNameSex.Name} {employeeNameSurNameSex.SurName} / {employeeNameSurNameSex.Age} / {employeeNameSurNameSex.Sex} /");
-var employee = new Employee();
-Console.WriteLine($"Bez parametrów = {employee.Name} {employee.SurName} / {employee.Age} / {employee.Sex} /");
-Console.WriteLine("");
-Console.WriteLine("");
+var supervisor = new Supervisor("Artur", "Malczewski");
 while (true)
 {
     Console.WriteLine("Podaj kolejną ocenę pracownika");
@@ -27,7 +18,9 @@ while (true)
     }
     try
     {
-        employee.AddGrade(input);
+        //HW Dzien 15 nie potrzebuje to 
+        //employee.AddGrade(input);
+        supervisor.AddGrade(input);
     }
     catch (Exception e)
     {
@@ -36,12 +29,27 @@ while (true)
 }
 
 
-try
+Console.WriteLine(); 
+if (supervisor.GradesLength()>0)
 {
-    var statistics = employee.GetStatistics();
+    var statistics = supervisor.GetStatistics();
     statistics.WriteLineStatistics();
 }
-catch (Exception ex)
+else 
 {
-    Console.WriteLine($"Exception catched: {ex.Message}");
+    Console.WriteLine("No statistics to show"); 
 }
+Console.WriteLine();
+Console.WriteLine("=============================================");
+
+
+//HW Dzien 15 nie potrzebuje to 
+//try
+//{
+//    var statistics = employee.GetStatistics();
+//    statistics.WriteLineStatistics();
+//}
+//catch (Exception ex)
+//{
+//    Console.WriteLine($"Exception catched: {ex.Message}");
+//}

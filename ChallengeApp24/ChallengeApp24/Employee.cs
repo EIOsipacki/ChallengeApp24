@@ -1,40 +1,17 @@
 ﻿namespace ChallengeApp24
 {
-    public class Employee : Person
+    public class Employee : IEmployee
     {
         private List<float> grades = new List<float>();
 
-        public Employee(string name, string surName, int age, string sex)
-            : base(name, surName, sex)
-        {
-            this.Age = age;
-        }
-
-        public Employee(string name, string surName, string sex)
-            : this(name, surName, 0, sex)
-        {
-        }
-
-        public Employee(string name, string surName, int age)
-            : this(name, surName, age, "M")
-        {
-        }
         public Employee(string name, string surName)
-            : this(name, surName, 0, "M")
         {
+            this.Name = name;
+            this.SurName = surName;
         }
 
-        public Employee(int age, string sex)
-            : this(" no name", "no surname", age, sex)
-        {
-        }
-
-        public Employee()
-            : this("no name", "no surname", 0, "M")
-        {
-        }
-
-        public int Age { get; private set; }
+        public string Name { get; private set; }
+        public string SurName { get; private set; }
 
         public void AddGrade(float grade)
         {
@@ -47,7 +24,6 @@
                 throw new Exception("invalid grade value");
             }
         }
-
         public void AddGrade(string grade)
         {
             if (float.TryParse(grade, out float value))
@@ -59,13 +35,11 @@
                 throw new Exception("String is not float");
             }
         }
-
         public void AddGrade(double grade)
         {
             var value = (float)grade;
             this.AddGrade(value);
         }
-
         public void AddGrade(long grade)
         {
             var value = (float)grade;
@@ -83,7 +57,6 @@
         //    string value = grade.ToString();
         //    this.AddGrade(value);
         //}
-
 
         public void AddGrade(char grade)
         {
@@ -115,8 +88,6 @@
                     //break;
             }
         }
-
-
 
         public Statistics GetStatistics()
         {
