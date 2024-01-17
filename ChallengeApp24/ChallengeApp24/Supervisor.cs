@@ -53,62 +53,62 @@
             switch (grade)
             {
                 case "6":
-                    this.grades.Add(100);
+                    AddGrade(100);
                     break;
                 case "-6":
                 case "6-":
-                    this.grades.Add(95);
+                    AddGrade(95);
                     break;
                 case "+5":
                 case "5+":
-                    this.grades.Add(85);
+                    AddGrade(85);
                     break;
                 case "5":
-                    this.grades.Add(80);
+                    AddGrade(80);
                     break;
                 case "-5":
                 case "5-":
-                    this.grades.Add(75);
+                    AddGrade(75);
                     break;
                 case "4":
-                    this.grades.Add(60);
+                    AddGrade(60);
                     break;
                 case "+4":
                 case "4+":
-                    this.grades.Add(65);
+                    AddGrade(65);
                     break;
                 case "-4":
                 case "4-":
-                    this.grades.Add(55);
+                    AddGrade(55);
                     break;
                 case "3":
-                    this.grades.Add(40);
+                    AddGrade(40);
                     break;
                 case "+3":
                 case "3+":
-                    this.grades.Add(45);
+                    AddGrade(45);
                     break;
                 case "-3":
                 case "3-":
-                    this.grades.Add(35);
+                    AddGrade(35);
                     break;
                 case "2":
-                    this.grades.Add(20);
+                    AddGrade(20);
                     break;
                 case "+2":
                 case "2+":
-                    this.grades.Add(25);
+                    AddGrade(25);
                     break;
                 case "-2":
                 case "2-":
-                    this.grades.Add(15);
+                    AddGrade(15);
                     break;
                 case "1":
-                    this.grades.Add(0);
+                    AddGrade(0);
                     break;
                 case "+1":
                 case "1+":
-                    this.grades.Add(5);
+                    AddGrade(5);
                     break;
                 default:
                     throw new Exception("Wrong letter");
