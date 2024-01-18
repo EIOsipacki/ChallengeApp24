@@ -9,7 +9,7 @@
 
         public void WriteLineStatistics()
         {
-            Console.WriteLine("Result");
+            Console.WriteLine("Result: ");
             Console.WriteLine($"Average: {Average:N2}");
             Console.WriteLine($"Min: {Min}");
             Console.WriteLine($"Max: {Max}");

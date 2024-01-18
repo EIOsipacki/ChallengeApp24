@@ -2,12 +2,13 @@
 
 Console.WriteLine(" Witamy w Programie XVZ do oceny Pracowników");
 Console.WriteLine("=============================================");
+
+
+//var employee = new EmployeeInMemory("Artur", "Malczewski");
+var employee = new EmployeeInFile("Artur", "Malczewski");
+employee.SayHello();
 Console.WriteLine();
 
-//HW Dzien 15 nie potrzebuje to
-//var employeeNameSurNameAgeSex = new Employee("Adam", "Kowalski", 35, "M");
-
-var supervisor = new Supervisor("Artur", "Malczewski");
 while (true)
 {
     Console.WriteLine("Podaj kolejną ocenę pracownika");
@@ -18,9 +19,7 @@ while (true)
     }
     try
     {
-        //HW Dzien 15 nie potrzebuje to 
-        //employee.AddGrade(input);
-        supervisor.AddGrade(input);
+        employee.AddGrade(input);
     }
     catch (Exception e)
     {
@@ -28,28 +27,20 @@ while (true)
     }
 }
 
-
-Console.WriteLine(); 
-if (supervisor.GradesLength()>0)
+Console.WriteLine();
+if (employee.GradesLength())
 {
-    var statistics = supervisor.GetStatistics();
+    Console.WriteLine();
+    Console.WriteLine("Zawartość pliku Grade.txt: ");
+    var statistics = employee.GetStatistics();
+    Console.WriteLine();
+    Console.WriteLine();
     statistics.WriteLineStatistics();
 }
-else 
+else
 {
-    Console.WriteLine("No statistics to show"); 
+    Console.WriteLine("Plik nie istnieje. Nie ma statystyk do pokazu");
 }
+
 Console.WriteLine();
 Console.WriteLine("=============================================");
-
-
-//HW Dzien 15 nie potrzebuje to 
-//try
-//{
-//    var statistics = employee.GetStatistics();
-//    statistics.WriteLineStatistics();
-//}
-//catch (Exception ex)
-//{
-//    Console.WriteLine($"Exception catched: {ex.Message}");
-//}
