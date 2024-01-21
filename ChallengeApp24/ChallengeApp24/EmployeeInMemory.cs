@@ -17,7 +17,7 @@
 
         //public delegate void WriteMessage(string message);
 
-        public delegate void GradeAddedDelegate(object sender, EventArgs args);
+       // public delegate void GradeAddedDelegate(object sender, EventArgs args);
 
         public event GradeAddedDelegate GradeAdded;
 

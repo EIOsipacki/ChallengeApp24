@@ -10,6 +10,8 @@
         {
         }
 
+        public event GradeAddedDelegate GradeAdded;
+
         public override void AddGrade(float grade)
         {
 
@@ -55,6 +57,10 @@
             if (float.TryParse(grade, out float value))
             {
                 this.AddGrade(value);
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
             }
             else
             {
