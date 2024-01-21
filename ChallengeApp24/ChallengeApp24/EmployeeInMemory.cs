@@ -5,9 +5,33 @@
         public EmployeeInMemory(string name, string surname)
             : base(name, surname)
         {
+            //WriteMessage delegat;
+            //delegat = WrieMessageInConsole;
+            //delegat += WrieMessageInConsole2;
+            //delegat(" Moj tekst");
+
+            //delegat -= WrieMessageInConsole;
+
+
         }
 
+        //public delegate void WriteMessage(string message);
+
+        public delegate void GradeAddedDelegate(object sender, EventArgs args);
+
+        public event GradeAddedDelegate GradeAdded;
+
         private List<float> grades = new List<float>();
+
+        //private void WrieMessageInConsole(string message)
+        //{
+        //    Console.WriteLine(message);
+        //}
+
+        //private void WrieMessageInConsole2(string message)
+        //{
+        //    Console.WriteLine(message.ToUpper());
+        //}
 
         public override void SayHello()
         {
@@ -20,6 +44,11 @@
             if (grade >= 0 && grade <= 100)
             {
                 this.grades.Add(grade);
+
+                if (GradeAdded  != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
             }
             else
             {

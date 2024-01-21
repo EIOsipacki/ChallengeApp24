@@ -4,10 +4,21 @@ Console.WriteLine(" Witamy w Programie XVZ do oceny Pracowników");
 Console.WriteLine("=============================================");
 
 
-//var employee = new EmployeeInMemory("Artur", "Malczewski");
-var employee = new EmployeeInFile("Artur", "Malczewski");
+var employee = new EmployeeInMemory("Artur", "Malczewski");
+//var employee = new EmployeeInFile("Artur", "Malczewski");
 employee.SayHello();
 Console.WriteLine();
+
+employee.GradeAdded+= EmployeeGradeAdded;
+//employee.GradeAdded += EmployeeGradeAdded;
+
+
+void EmployeeGradeAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("Dodano nową ocenę");
+}
+
+//employee.GradeAdded -= EmployeeGradeAdded;
 
 while (true)
 {
@@ -28,7 +39,7 @@ while (true)
 }
 
 Console.WriteLine();
-if (employee.GradesLength())
+if (employee.GradesLength()>0)
 {
     Console.WriteLine();
     Console.WriteLine("Zawartość pliku Grade.txt: ");
@@ -39,7 +50,8 @@ if (employee.GradesLength())
 }
 else
 {
-    Console.WriteLine("Plik nie istnieje. Nie ma statystyk do pokazu");
+   // Console.WriteLine("Plik nie istnieje. Nie ma statystyk do pokazu");
+    Console.WriteLine("Lista ocen jest pusta. Nie ma statystyk do pokazu");
 }
 
 Console.WriteLine();
