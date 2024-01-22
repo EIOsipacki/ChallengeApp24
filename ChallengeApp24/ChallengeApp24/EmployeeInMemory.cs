@@ -17,9 +17,9 @@
 
         //public delegate void WriteMessage(string message);
 
-       // public delegate void GradeAddedDelegate(object sender, EventArgs args);
+        // public delegate void GradeAddedDelegate(object sender, EventArgs args);
 
-        public event GradeAddedDelegate GradeAdded;
+        public override event GradeAddedDelegate GradeAdded;
 
         private List<float> grades = new List<float>();
 
@@ -45,7 +45,7 @@
             {
                 this.grades.Add(grade);
 
-                if (GradeAdded  != null)
+                if (GradeAdded != null)
                 {
                     GradeAdded(this, new EventArgs());
                 }
@@ -119,36 +119,11 @@
         {
             var statistics = new Statistics();
 
-            statistics.Average = 0;
-            statistics.Min = float.MaxValue;
-            statistics.Max = float.MinValue;
-
             foreach (var grade in this.grades)
             {
-                statistics.Max = Math.Max(statistics.Max, grade);
-                statistics.Min = Math.Min(statistics.Min, grade);
-                statistics.Average += grade;
+                statistics.AddGrade(grade);
             }
-            statistics.Average /= this.grades.Count;
-
-            switch (statistics.Average)
-            {
-                case var average when average >= 80:
-                    statistics.AverageLetter = 'A';
-                    break;
-                case var average when average >= 60:
-                    statistics.AverageLetter = 'B';
-                    break;
-                case var average when average >= 40:
-                    statistics.AverageLetter = 'C';
-                    break;
-                case var average when average >= 20:
-                    statistics.AverageLetter = 'D';
-                    break;
-                default:
-                    statistics.AverageLetter = 'E';
-                    break;
-            }
+            
             return statistics;
         }
 

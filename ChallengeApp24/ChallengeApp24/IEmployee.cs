@@ -1,4 +1,6 @@
 ﻿
+using static ChallengeApp24.EmployeeBase;
+
 namespace ChallengeApp24
 {
     internal interface IEmployee
@@ -6,8 +8,7 @@ namespace ChallengeApp24
         string Name { get; }
         string SurName { get; }
 
-        Statistics GetStatistics();
-
+        
         void AddGrade(float grade);
 
         void AddGrade(double grade);
@@ -19,5 +20,10 @@ namespace ChallengeApp24
         void AddGrade(char grade);
 
         void AddGrade(string grade);
+
+        event GradeAddedDelegate GradeAdded;
+
+        Statistics GetStatistics();
+
     }
 }

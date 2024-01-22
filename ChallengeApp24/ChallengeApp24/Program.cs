@@ -40,7 +40,7 @@ while (true)
 
 Console.WriteLine();
 //if (employee.GradesLength() > 0)
-if (employee.GradesLength())
+if (employee.GradesLength() == true)
 {
     Console.WriteLine();
     Console.WriteLine("Zawartość pliku Grade.txt: ");
@@ -52,7 +52,7 @@ if (employee.GradesLength())
 else
 {
     Console.WriteLine("Plik nie istnieje. Nie ma statystyk do pokazu");
-    // Console.WriteLine("Lista ocen jest pusta. Nie ma statystyk do pokazu");
+    //Console.WriteLine("Lista ocen jest pusta. Nie ma statystyk do pokazu");
 }
 
 Console.WriteLine();

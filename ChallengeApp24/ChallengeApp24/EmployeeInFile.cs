@@ -10,7 +10,7 @@
         {
         }
 
-        public event GradeAddedDelegate GradeAdded;
+        public override event GradeAddedDelegate GradeAdded;
 
         public override void AddGrade(float grade)
         {
@@ -71,46 +71,22 @@
         public override Statistics GetStatistics()
         {
             var result = new Statistics();
-            result.Average = 0;
-            result.Max = float.MinValue;
-            result.Min = float.MaxValue;
+            
 
             if (File.Exists(fileName))
             {
-                countLines = 1;
                 using (var reader = File.OpenText(fileName))
                 {
                     var line = reader.ReadLine();
+                    int countLines = 1;
                     while (line != null)
                     {
                         var number = float.Parse(line);
                         Console.WriteLine($"{countLines} stroka = {number}");
-                        result.Max = Math.Max(result.Max, number);
-                        result.Min = Math.Min(result.Min, number);
-                        result.Average += number;
+                        result.AddGrade(number);
                         line = reader.ReadLine();
                         countLines++;
-
                     }
-                    result.Average /= (countLines - 1);
-                }
-                switch (result.Average)
-                {
-                    case var average when average >= 80:
-                        result.AverageLetter = 'A';
-                        break;
-                    case var average when average >= 60:
-                        result.AverageLetter = 'B';
-                        break;
-                    case var average when average >= 40:
-                        result.AverageLetter = 'C';
-                        break;
-                    case var average when average >= 20:
-                        result.AverageLetter = 'D';
-                        break;
-                    default:
-                        result.AverageLetter = 'E';
-                        break;
                 }
             }
             return result;
